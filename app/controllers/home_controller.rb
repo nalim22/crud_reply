@@ -16,8 +16,8 @@ class HomeController < ApplicationController
    new_post.content = params[:content]
    new_post.save
    
-   new_p = Post.new(title: params[:title], editor:params[:editor], content:params[:content])
-   new_p.save
+  # new_p = Post.new(title: params[:title], editor:params[:editor], content:params[:content])
+  # new_p.save
    
    redirect_to "/"
   end
