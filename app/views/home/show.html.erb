@@ -1,0 +1,45 @@
+<div class="container">
+ <h1>게시글</h1>
+    번호 : <%= @show_post.id %> <br>
+    제목:<%=@show_post.title%><br>
+    작성자:<%= @show_post.editor %> <br>
+    컨텐츠:<%= @show_post.content %> <br>
+    
+    <a href="/home/edit/<%= @show_post.id %>">[수정]</a>
+    <a href="/home/destroy/<%= @show_post.id %>">[삭제]</a>
+    <hr>
+</div>
+
+<div class="container">
+  <h1>댓글쓰기</h1> 
+
+    <form action = "/coment/reply_create" method = "POST">
+        <div class="form-group">
+        <input type="hidden" name="p_id"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"value="<%=@show_post.id%>">
+        <small id="emailHelp" class="form-text text-muted"></small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">작성자</label>
+        <input type="text" name="editor"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"value="나림">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="comment">content:</label>
+        <textarea class="form-control" name="content" rows="3" id="comment">하이하이하이하이</textarea>
+      <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+<div class="container">
+    <h1>댓글</h1> 
+
+  <% @show_reply.each do |r| %>
+  댓글번호 : <%=r.id%> <hr>
+  작성자 : <%=r.editor%> <hr>
+  내용 : <%=r.content%> <hr>
+  <a href="/coment/reply_delete/<%=r.id%>">[삭제]</a>
+  <br><hr>
+  <% end %>
+  
+</div>

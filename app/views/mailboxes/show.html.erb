@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>S email:</strong>
+  <%= @mailbox.s_email %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @mailbox.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @mailbox.content %>
+</p>
+
+<%= link_to 'Edit', edit_mailbox_path(@mailbox) %> |
+<%= link_to 'Back', mailboxes_path %>
